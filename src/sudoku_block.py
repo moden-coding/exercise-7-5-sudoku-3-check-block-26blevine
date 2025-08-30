@@ -1,6 +1,20 @@
 # Write your solution here
 def block_correct(sudoku: list, row_no: int, column_no: int):
-    pass
+    check = []
+    for row in range (row_no, row_no+3):
+        for col in range (column_no, column_no+3):
+            check.append(sudoku[row][col])
+    for val in range(1, 10):
+            seen_once = False
+            for num in check:
+                if num == val:
+                    if not seen_once:
+                        seen_once = True
+                    else:
+                        return False
+    return True
+
+
 
 if __name__ == "__main__":
  
